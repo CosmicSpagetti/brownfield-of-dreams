@@ -1,5 +1,4 @@
 RSpec.configure do |config|
-
   config.before(:suite) do
      DatabaseCleaner.clean_with(:truncation)
    end
@@ -33,3 +32,9 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
+# OmniAuth.config.test_mode = true
+#
+# OmniAuth.config.mock_auth[:github] = OmniAuth::AuthHash.new({
+#   "extra" => {"raw_info" => {"login" => 'earl-stephens'}},
+#   "credentials" => {"token" => "whatever"}
+#   })
