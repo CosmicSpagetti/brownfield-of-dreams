@@ -7,10 +7,9 @@
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
   </ul>
-
   <section class='github_button'>
     <% if current_user.github_token.nil? %>
-    <%= button_to 'Connect to Github', github_login_path, method: :get %>
+    <%= button_to 'Connect to Github', '/auth/github' %>
     <% end %>
   </section>
   <section>
