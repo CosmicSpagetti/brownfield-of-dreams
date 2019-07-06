@@ -1,4 +1,7 @@
 <main class="tutorials">
+  <% if @facade.videos == [] %>
+  <h4>There are no videos for this tutorial yet.</h4>
+  <% else %>
 <h2><%= @facade.title %></h2>
 <h1 id="message"></h1>
 <div class="col col-4">
@@ -65,5 +68,5 @@
     <%= link_to "More", "#", "data-action" => "click->tutorials#showDescription", id: @facade.current_video.id, class: "show-link"%>
   </p>
 </div>
-
+<% end %>
 </main>
