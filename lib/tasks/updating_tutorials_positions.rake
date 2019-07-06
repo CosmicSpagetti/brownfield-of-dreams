@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :update_tutorial_videos do
   desc 'update nils from video position'
   task videos: :environment do

@@ -1,6 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-describe GithubService  do
+require 'rails_helper'
+
+describe GithubService do
   it 'exists' do
     user = create(:user)
     github = GithubService.new(user)
