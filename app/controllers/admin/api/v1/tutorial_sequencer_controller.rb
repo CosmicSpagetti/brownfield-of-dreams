@@ -1,14 +1,23 @@
-class Admin::Api::V1::TutorialSequencerController < Admin::Api::V1::BaseController
-  def update
-    tutorial = Tutorial.find(params[:tutorial_id])
-    TutorialSequencer.new(tutorial, ordered_video_ids).run!
+# frozen_string_literal: true
 
-    render json: tutorial
-  end
+module Admin
+  module Api
+    module V1
+      # controller for tutorial sequencer
+      class TutorialSequencerController < Admin::Api::V1::BaseController
+        def update
+          tutorial = Tutorial.find(params[:tutorial_id])
+          TutorialSequencer.new(tutorial, ordered_video_ids).run!
 
-  private
+          render json: tutorial
+        end
 
-    def ordered_video_ids
-      params[:tutorial_sequencer][:_json]
+        private
+
+        def ordered_video_ids
+          params[:tutorial_sequencer][:_json]
+        end
+      end
     end
+  end
 end

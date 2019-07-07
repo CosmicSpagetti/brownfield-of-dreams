@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Github
   class SessionsController < ApplicationController
     def create
-      login = request.env["omniauth.auth"]["extra"]["raw_info"]["login"]
-      token = request.env["omniauth.auth"]["credentials"]["token"]
+      login = request.env['omniauth.auth']['extra']['raw_info']['login']
+      token = request.env['omniauth.auth']['credentials']['token']
       user = current_user
       user.update(username: login)
       user.update(github_token: token)

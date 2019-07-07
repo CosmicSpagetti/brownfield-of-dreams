@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# controller for users
 class UsersController < ApplicationController
   def show
     render locals: {
@@ -25,5 +28,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :first_name, :last_name, :password)
   end
-
 end

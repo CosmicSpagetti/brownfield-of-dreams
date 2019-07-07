@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# service for grabbind data from github
 class GithubService
   def initialize(user)
     @user = user

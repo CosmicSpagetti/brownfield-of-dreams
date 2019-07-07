@@ -1,7 +1,12 @@
-class Admin::BaseController < ApplicationController
-  before_action :require_admin!
+# frozen_string_literal: true
 
-  def require_admin!
-    four_oh_four unless current_user.admin?
+module Admin
+  # controller for admin base
+  class Admin::BaseController < ApplicationController
+    before_action :require_admin!
+
+    def require_admin!
+      four_oh_four unless current_user.admin?
+    end
   end
 end

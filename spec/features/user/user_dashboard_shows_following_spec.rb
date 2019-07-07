@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Logged in user' do
@@ -16,7 +18,7 @@ describe 'Logged in user' do
     within '.Github_following_section' do
       expect(page).to have_content('Following')
       expect(page.all('li').count).to eq(3)
-      expect(page).to have_link("earl-stephens")
+      expect(page).to have_link('earl-stephens')
     end
   end
 end
