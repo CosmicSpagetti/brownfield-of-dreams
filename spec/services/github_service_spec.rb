@@ -13,7 +13,9 @@ describe GithubService do
   context '#get_repos' do
     it 'returns repo data' do
       VCR.use_cassette('grab_github_service_repo') do
-        user = create(:user, username: 'CosmicSpagetti', github_token: ENV['BILLY_GITHUB_TOKEN'])
+        user = create(:user,
+                      username: 'CosmicSpagetti',
+                      github_token: ENV['BILLY_GITHUB_TOKEN'])
         github = GithubService.new(user)
 
         repos = github.repos
@@ -26,7 +28,9 @@ describe GithubService do
   context '#get_followers' do
     it 'returns follower data' do
       VCR.use_cassette('grab_github_service_followers') do
-        user = create(:user, username: 'CosmicSpagetti', github_token: ENV['BILLY_GITHUB_TOKEN'])
+        user = create(:user,
+                      username: 'CosmicSpagetti',
+                      github_token: ENV['BILLY_GITHUB_TOKEN'])
         github = GithubService.new(user)
 
         followers = github.followers
@@ -39,7 +43,9 @@ describe GithubService do
   context '#get_following' do
     it 'returns following data' do
       VCR.use_cassette('grab_github_service_following') do
-        user = create(:user, username: 'CosmicSpagetti', github_token: ENV['BILLY_GITHUB_TOKEN'])
+        user = create(:user,
+                      username: 'CosmicSpagetti',
+                      github_token: ENV['BILLY_GITHUB_TOKEN'])
         github = GithubService.new(user)
 
         following = github.following

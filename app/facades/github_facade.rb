@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# poro for github facade
 class GithubFacade
   def initialize(user)
     @user = user

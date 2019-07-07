@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# model for youtube video
 module YouTube
   class Video
     attr_reader :thumbnail

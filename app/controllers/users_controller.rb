@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# controller for users
 class UsersController < ApplicationController
   def show
     render locals: {

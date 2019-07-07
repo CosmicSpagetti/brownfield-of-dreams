@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - db/*
+    - 'spec/**/*_spec.rb'
+    - config/routes.rb
+    - node_modules/**/*.spec
+    - node_modules/**/extconf.rb

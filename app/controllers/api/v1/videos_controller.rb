@@ -1,7 +1,12 @@
 # frozen_string_literal: true
 
-class Api::V1::VideosController < ApplicationController
-  def show
-    render json: Video.find(params[:id])
+# controller for videos
+module Api
+  module V1
+    class VideosController < ApplicationController
+      def show
+        render json: Video.find(params[:id])
+      end
+    end
   end
 end
