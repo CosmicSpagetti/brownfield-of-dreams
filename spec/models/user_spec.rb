@@ -24,4 +24,24 @@ RSpec.describe User, type: :model do
       expect(admin.admin?).to be_truthy
     end
   end
+  describe 'Instance methods' do 
+    it '.shake_hand' do 
+      user_billy = User.create!(email: 'billy@example.com',
+                             first_name: 'Billy',
+                             last_name: 'Urrutia',
+                             password: 'password',
+                             username: 'CosmicSpagetti',
+                             github_token: ENV['BILLY_GITHUB_TOKEN'])
+      user_earl = User.create!(email: 'earl@example.com',
+                            first_name: 'Earl',
+                            last_name: 'Stephens',
+                            password: 'password',
+                            username: 'earl-stephens',
+                            github_token: ENV['EARL_GITHUB_TOKEN'])
+      
+      user_billy.shake_hand(user_earl)
+      user_billy.reload
+      expect(user_billy.friend_users).to include(user_earl)
+    end
+  end
 end
