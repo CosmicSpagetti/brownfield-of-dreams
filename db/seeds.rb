@@ -127,4 +127,10 @@ User.create!(email: 'earl@example.com',
              last_name: 'Stephens',
              password: 'password',
              username: 'earl-stephens',
-             github_token: ENV['GITHUB_TOKEN'])
+             github_token: ENV['EARL_GITHUB_TOKEN'])
+User.create!(email: 'billy@example.com',
+             first_name: 'Billy',
+             last_name: 'Urrutia',
+             password: 'password',
+             username: 'CosmicSpagetti',
+             github_token: ENV['BILLY_GITHUB_TOKEN'])
