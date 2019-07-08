@@ -9,4 +9,13 @@ class Follower
     @name = follower[:login]
     @url = follower[:html_url]
   end
+
+  def registered_user? 
+    User.exists?(username: self.name)
+  end
+
+  def not_friend?(user)
+    users = user.friend_users.map(&:username)
+    users.include?(self.name)
+  end
 end

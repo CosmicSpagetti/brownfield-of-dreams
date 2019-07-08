@@ -15,6 +15,12 @@
   <section>
     <h1>Bookmarked Segments</h1>
   </section>
+  <section class="friends_section">
+    <h1>Friends</h1>
+    <ul><% current_user.friend_users.each do |friend| %>
+      <li> <%= friend.username %></li>
+    <% end %></ul>
+  </section>
   <section class='Github_section'>
     <% unless current_user.github_token.nil? %>
       <h2> Github </h2>
@@ -28,7 +34,10 @@
     <h2>Followers</h2>
     <ul>
       <% facade.grab_followers.each do |follower| %>
-        <li><%= link_to follower.name , follower.url %> </li>
+        <li id="followers_username-<%= follower.name %>"><%= link_to follower.name , follower.url %> 
+          <% if follower.registered_user? && !follower.not_friend?(current_user) %>
+            <%= link_to  "Add as Friend", user_path(current_user, friend_username: follower.name), method: :patch %> </li>
+          <% end %>
       <% end %>
     </ul>
   </section>
@@ -36,7 +45,10 @@
     <h2>Following</h2>
     <ul>
       <% facade.grab_following.each do |following| %>
-        <li><%= link_to following.name , following.url %> </li>
+        <li id="following_username-<%= following.name %>"><%= link_to following.name , following.url %> 
+          <% if following.registered_user? && !following.not_friend?(current_user) %> 
+            <%= link_to  "Add as Friend", user_path(current_user, friend_username: following.name), method: :patch  %> </li>
+          <% end %>
       <% end %>
     </ul>
   </section>

@@ -2,7 +2,7 @@
 
 module Github
   class SessionsController < ApplicationController
-    def create
+    def update
       login = request.env['omniauth.auth']['extra']['raw_info']['login']
       token = request.env['omniauth.auth']['credentials']['token']
       user = current_user
@@ -10,7 +10,6 @@ module Github
       user.update(github_token: token)
       user.save
       session[:user_id] = user.id
-      # binding.pry
       redirect_back fallback_location: dashboard_path
     end
   end

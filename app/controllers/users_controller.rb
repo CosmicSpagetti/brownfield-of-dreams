@@ -22,6 +22,14 @@ class UsersController < ApplicationController
       render :new
     end
   end
+  
+  def update
+    user = User.find(params[:id])
+    friend = User.find_by(username: params[:friend_username])
+    user.shake_hand(friend)
+    current_user.reload
+    redirect_to dashboard_path 
+  end
 
   private
 
