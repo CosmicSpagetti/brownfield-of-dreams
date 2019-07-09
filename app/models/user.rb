@@ -15,4 +15,8 @@ class User < ApplicationRecord
   def shake_hand(user)
     self.friend_users << user
   end
+
+  def update_activation_status
+    self.update(email_active: true)
+  end
 end
