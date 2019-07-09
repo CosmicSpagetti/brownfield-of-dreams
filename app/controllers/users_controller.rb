@@ -16,19 +16,20 @@ class UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       session[:user_id] = user.id
+      flash[:success] = "Logged in as #{user.first_name}."
       redirect_to dashboard_path
     else
       flash[:error] = 'Username already exists'
       render :new
     end
   end
-  
+
   def update
     user = User.find(params[:id])
     friend = User.find_by(username: params[:friend_username])
     user.shake_hand(friend)
     current_user.reload
-    redirect_to dashboard_path 
+    redirect_to dashboard_path
   end
 
   private

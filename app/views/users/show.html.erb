@@ -6,6 +6,9 @@
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
+    <% if current_user.email_active == false %>
+      <li>This account has not yet been activated. Please check your email.</li>
+    <% end %>
   </ul>
   <section class='github_button'>
     <% if current_user.github_token.nil? %>
@@ -34,7 +37,7 @@
     <h2>Followers</h2>
     <ul>
       <% facade.grab_followers.each do |follower| %>
-        <li id="followers_username-<%= follower.name %>"><%= link_to follower.name , follower.url %> 
+        <li id="followers_username-<%= follower.name %>"><%= link_to follower.name , follower.url %>
           <% if follower.registered_user? && !follower.not_friend?(current_user) %>
             <%= link_to  "Add as Friend", user_path(current_user, friend_username: follower.name), method: :patch %> </li>
           <% end %>
@@ -45,8 +48,8 @@
     <h2>Following</h2>
     <ul>
       <% facade.grab_following.each do |following| %>
-        <li id="following_username-<%= following.name %>"><%= link_to following.name , following.url %> 
-          <% if following.registered_user? && !following.not_friend?(current_user) %> 
+        <li id="following_username-<%= following.name %>"><%= link_to following.name , following.url %>
+          <% if following.registered_user? && !following.not_friend?(current_user) %>
             <%= link_to  "Add as Friend", user_path(current_user, friend_username: following.name), method: :patch  %> </li>
           <% end %>
       <% end %>
