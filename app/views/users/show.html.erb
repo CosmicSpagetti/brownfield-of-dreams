@@ -6,6 +6,7 @@
   <ul>
     <li> <%= current_user.first_name  %> <%= current_user.last_name %> </li>
     <li> <%= current_user.email%> </li>
+    <li> Status Active: <%= current_user.email_active %></li>
     <% if current_user.email_active == false %>
       <li>This account has not yet been activated. Please check your email.</li>
     <% end %>

@@ -2,6 +2,7 @@
 
 # class for application mailer
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'mike@turing.io'
   layout 'mailer'
+
 end
