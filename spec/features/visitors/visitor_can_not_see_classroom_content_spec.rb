@@ -14,8 +14,8 @@ describe 'As a visitor' do
   end
 end
 
-describe 'As a visitor' do 
-  it 'Can not view classroom content' do 
+describe 'As a registered user' do 
+  it 'Can view classroom content' do 
     user_billy = create(:user)
     tutorial_1 = create(:tutorial, classroom: false )
     tutorial_2 = create(:tutorial, classroom: true)
