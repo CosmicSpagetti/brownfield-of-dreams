@@ -46,5 +46,8 @@ Rails.application.routes.draw do
     resources :videos, only: %i[show index]
   end
 
-  resources :user_videos, only: %i[create destroy]
+  resources :user_videos, only: %i[cre
+    ate destroy]
+  get '/invite', to: 'invitations#new'
+  post '/email_invite', to: 'invitations#create'
 end
