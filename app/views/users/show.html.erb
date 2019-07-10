@@ -16,8 +16,9 @@
     <%= button_to 'Connect to Github', '/auth/github' %>
     <% end %>
   </section>
-  <section>
+  <section class="bookmarks">
     <h1>Bookmarked Segments</h1>
+    <% current_user.get_vids_and_tutorials %>
   </section>
   <section class="friends_section">
     <h1>Friends</h1>

@@ -19,4 +19,14 @@ class User < ApplicationRecord
   def update_activation_status
     self.update(email_active: true)
   end
+
+  def get_vids_and_tutorials
+    data = Tutorial.joins(videos: :user_videos)
+                    .includes(:videos)
+                    .where(user_videos: {user_id: self.id})
+                    .order(:id)
+                    .order("videos.position")
+    binding.pry
+  end
 end
+#Tutorial.joins(videos: :user_videos).includes(:videos).where(user_videos: {user_id: self.id}).order(:id).order("videos.id")
