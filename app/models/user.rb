@@ -21,11 +21,14 @@ class User < ApplicationRecord
   end
 
   def get_vids_and_tutorials
-    data = Tutorial.joins(videos: :user_videos)
-                    .includes(:videos)
-                    .where(user_videos: {user_id: self.id})
-                    .order(:id)
-                    .order("videos.position")
+    video_data = Video.joins(:user_videos, :tutorial)
+                .where(user_videos: {user_id: self.id})
+                .includes(:tutorial)
+                .order(:position)
+    tutorial_names = []
+    video_data.each do |vid|
+      tutorial_names << vid.tutorial.title
+    end
     binding.pry
   end
 end
