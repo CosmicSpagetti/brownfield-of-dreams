@@ -7,15 +7,19 @@ class GithubService
   end
 
   def repos
-    getting_json('repos')
+    getting_json('/user/repos')
   end
 
   def followers
-    getting_json('followers')
+    getting_json('/user/followers')
   end
 
   def following
-    getting_json('following')
+    getting_json('/user/following')
+  end
+
+  def invitee_email(handle)
+    getting_json("/users/#{handle}")
   end
 
   private
@@ -26,7 +30,7 @@ class GithubService
   end
 
   def conn
-    Faraday.new('https://api.github.com/user/') do |faraday|
+    Faraday.new('https://api.github.com') do |faraday|
       faraday.basic_auth(@user.username, @user.github_token)
       faraday.adapter Faraday.default_adapter
     end
