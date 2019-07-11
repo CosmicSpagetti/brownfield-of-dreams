@@ -20,16 +20,18 @@ class User < ApplicationRecord
     self.update(email_active: true)
   end
 
-  def get_vids_and_tutorials
-    video_data = Video.joins(:user_videos, :tutorial)
-                .where(user_videos: {user_id: self.id})
-                .includes(:tutorial)
-                .order(:position)
+  def grab_tutorial_names
     tutorial_names = []
-    video_data.each do |vid|
+    grab_videos.each do |vid|
       tutorial_names << vid.tutorial.title
     end
-    binding.pry
+    tutorial_names.uniq
+  end
+
+  def grab_videos
+    video_data ||= Video.joins(:user_videos, :tutorial)
+                        .where(user_videos: {user_id: self.id})
+                        .includes(:tutorial)
+                        .order(:position)
   end
 end
-#Tutorial.joins(videos: :user_videos).includes(:videos).where(user_videos: {user_id: self.id}).order(:id).order("videos.id")

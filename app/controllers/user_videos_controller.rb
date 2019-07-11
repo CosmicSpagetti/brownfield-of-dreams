@@ -6,17 +6,13 @@ class UserVideosController < ApplicationController
 
   def create
     user_video = UserVideo.new(user_video_params)
-    # binding.pry
     if current_user.user_videos.find_by(video_id: user_video.video_id)
       flash[:error] = 'Already in your bookmarks'
-      redirect_to root_path
     elsif user_video.save
       flash[:success] = 'Bookmark added to your dashboard!'
     end
     current_vid = Video.find(user_video_params[:video_id])
     current_tutorial = current_vid.tutorial
-    # redirect_back(fallback_location: root_path)
-    # binding.pry
     redirect_to tutorial_path(current_tutorial)
   end
 

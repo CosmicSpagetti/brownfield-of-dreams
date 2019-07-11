@@ -13,8 +13,7 @@ describe 'a logged in user' do
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit tutorial_path(tutorial1)
-# binding.pry
-# save_and_open_page
+
 click_on video1.title
       expect do
         click_on 'Bookmark'
@@ -27,8 +26,7 @@ click_on video3.title
       expect do
         click_on 'Bookmark'
       end.to change { UserVideo.count }.by(1)
-# save_and_open_page
-# binding.pry
+
     visit tutorial_path(tutorial2)
 
     expect do
@@ -38,12 +36,10 @@ click_on video3.title
     visit dashboard_path
 
     within '.bookmarks' do
-      within "#tutorial-#{tutorial1.id}" do
-        expect(page).to have_content(tutorial1.title)
-        expect(page.all("li")[0]).to have_content(video1)
-        expect(page.all("li")[1]).to have_content(video2)
-        expect(page.all("li")[2]).to have_content(video3)
-      end
+      expect(page).to have_content(tutorial1.title)
+      expect(page.all("li")[0]).to have_content(video1.title)
+      expect(page.all("li")[1]).to have_content(video2.title)
+      expect(page.all("li")[2]).to have_content(video3.title)
     end
   end
 end
