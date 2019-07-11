@@ -4,7 +4,6 @@ class InvitationMailer < ApplicationMailer
     @invitee = invitee
     @user = user
     @email = email
-    binding.pry
     mail(to: email, subject: "Invitation to join our app")
   end
 end
