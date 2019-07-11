@@ -1,0 +1,82 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/users/earl-stephens
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic Q29zbWljU3BhZ2V0dGk6MmFiNjI1ZDk3M2JkZTk1MTY5N2UyYWQ1NGI2NTU3ZGM3MjJkMzk5Yg==
+      User-Agent:
+      - Faraday v0.12.2
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 11 Jul 2019 00:05:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Server:
+      - GitHub.com
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4995'
+      X-Ratelimit-Reset:
+      - '1562807128'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      Etag:
+      - W/"8f623c6ce015179b313fe6c2984bedfb"
+      Last-Modified:
+      - Fri, 05 Jul 2019 15:59:30 GMT
+      X-Oauth-Scopes:
+      - public_repo
+      X-Accepted-Oauth-Scopes:
+      - ''
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval,
+        X-GitHub-Media-Type
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Github-Request-Id:
+      - E43A:1AEF:24CF54:361481:5D267D47
+    body:
+      encoding: ASCII-8BIT
+      string: '{"login":"earl-stephens","id":34906415,"node_id":"MDQ6VXNlcjM0OTA2NDE1","avatar_url":"https://avatars1.githubusercontent.com/u/34906415?v=4","gravatar_id":"","url":"https://api.github.com/users/earl-stephens","html_url":"https://github.com/earl-stephens","followers_url":"https://api.github.com/users/earl-stephens/followers","following_url":"https://api.github.com/users/earl-stephens/following{/other_user}","gists_url":"https://api.github.com/users/earl-stephens/gists{/gist_id}","starred_url":"https://api.github.com/users/earl-stephens/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/earl-stephens/subscriptions","organizations_url":"https://api.github.com/users/earl-stephens/orgs","repos_url":"https://api.github.com/users/earl-stephens/repos","events_url":"https://api.github.com/users/earl-stephens/events{/privacy}","received_events_url":"https://api.github.com/users/earl-stephens/received_events","type":"User","site_admin":false,"name":"Earl
+        Stephens","company":null,"blog":"","location":"Orlando, FL","email":"stephensearl@hotmail.com","hireable":true,"bio":"Student
+        at Turing School of Software & Design, studying the backend engineering program.  I
+        have a bachelors in IT and a masters in cybersecurity.","public_repos":67,"public_gists":11,"followers":15,"following":13,"created_at":"2017-12-28T05:57:03Z","updated_at":"2019-07-05T15:59:30Z"}'
+    http_version: 
+  recorded_at: Thu, 11 Jul 2019 00:05:28 GMT
+recorded_with: VCR 4.0.0

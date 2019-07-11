@@ -1,0 +1,8 @@
+<h2><p>To invite a new person to the app,</p>
+  <p>enter their Github handle in the search box</p>
+  <p>and click Submit</p>
+    <%= form_tag '/email_invite' do %>
+      Github Handle: <%= text_field_tag :username %>
+      <%= submit_tag "Send Invite" %>
+    <% end %>
+</h2>

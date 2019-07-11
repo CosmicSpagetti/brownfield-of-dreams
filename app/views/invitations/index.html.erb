@@ -1,0 +1,8 @@
+<h2><p>To invite a new person to the app,</p>
+  <p>enter their Github handle in the search box</p>
+  <p>and click Submit</p>
+  <%= form_for @invitee do |f| %>
+    <%= f.text :username %>
+    <%= f.submit "Submit" %>
+  <% end %>
+</h2>
