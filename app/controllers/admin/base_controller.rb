@@ -2,11 +2,13 @@
 
 module Admin
   # controller for admin base
-  class Admin::BaseController < ApplicationController
-    before_action :require_admin!
+  class Admin
+    class BaseController < ApplicationController
+      before_action :require_admin!
 
-    def require_admin!
-      four_oh_four unless current_user.admin?
+      def require_admin!
+        four_oh_four unless current_user.admin?
+      end
     end
   end
 end

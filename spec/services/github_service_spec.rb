@@ -54,4 +54,22 @@ describe GithubService do
       end
     end
   end
+
+  context '#get_invitee_email' do
+    it 'returns following data' do
+      VCR.use_cassette('grab_github_service_invitee') do
+        user = create(:user,
+                      username: 'CosmicSpagetti',
+                      github_token: ENV['BILLY_GITHUB_TOKEN'])
+        github = GithubService.new(user)
+
+        invitee = github.invitee_email('earl-stephens')
+
+        expect(invitee).to be_a Hash
+        expect(invitee).to have_key(:login)
+        expect(invitee).to have_key(:email)
+        expect(invitee[:login]).to eq('earl-stephens')
+      end
+    end
+  end
 end

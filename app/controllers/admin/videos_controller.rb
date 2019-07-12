@@ -2,6 +2,7 @@
 
 # controller for videos
 module Admin
+  # controller for admins video controls 
   class VideosController < Admin::BaseController
     def edit
       @video = Video.find(params[:video_id])

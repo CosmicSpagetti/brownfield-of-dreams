@@ -39,12 +39,14 @@ Rails.application.routes.draw do
   get '/video', to: 'video#show'
   get '/auth/github', as: :github_login
   get '/auth/github/callback', to: 'github/sessions#update'
-  # get '/login/oauth/authorize'
   resources :users, only: %i[new create update edit]
   get 'users/:id', to: 'users#update'
   resources :tutorials, only: %i[show index] do
     resources :videos, only: %i[show index]
   end
 
-  resources :user_videos, only: %i[create destroy]
+  resources :user_videos, only: %i[cre
+    ate destroy]
+  get '/invite', to: 'invitations#new'
+  post '/email_invite', to: 'invitations#create'
 end

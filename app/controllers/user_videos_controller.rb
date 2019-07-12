@@ -2,8 +2,6 @@
 
 # controller for user videos
 class UserVideosController < ApplicationController
-  def new; end
-
   def create
     user_video = UserVideo.new(user_video_params)
     if current_user.user_videos.find_by(video_id: user_video.video_id)
