@@ -64,7 +64,7 @@ describe GithubService do
         github = GithubService.new(user)
 
         invitee = github.invitee_email('earl-stephens')
-        binding.pry
+
         expect(invitee).to be_a Hash
         expect(invitee).to have_key(:login)
         expect(invitee).to have_key(:email)

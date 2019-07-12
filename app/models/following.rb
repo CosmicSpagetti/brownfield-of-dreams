@@ -10,12 +10,12 @@ class Following
     @url = following[:html_url]
   end
 
-  def registered_user? 
-    User.exists?(username: self.name)
+  def registered_user?
+    User.exists?(username: name)
   end
 
   def not_friend?(user)
     users = user.friend_users.map(&:username)
-    users.include?(self.name)
+    users.include?(name)
   end
 end

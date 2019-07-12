@@ -2,6 +2,7 @@
 
 # model for youtube video
 module YouTube
+  # class for videos
   class Video
     attr_reader :thumbnail
 
