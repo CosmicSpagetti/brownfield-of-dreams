@@ -13,10 +13,10 @@ class User < ApplicationRecord
   has_secure_password
 
   def shake_hand(user)
-    self.friend_users << user
+    friend_users << user
   end
 
   def update_activation_status
-    self.update(email_active: true)
+    update(email_active: true)
   end
 end

@@ -1,5 +1,6 @@
-class InvitationsController < ApplicationController
+# frozen_string_literal: true
 
+class InvitationsController < ApplicationController
   def new
     @user = User.new
   end
@@ -18,5 +19,4 @@ class InvitationsController < ApplicationController
       redirect_to dashboard_path
     end
   end
-
 end
