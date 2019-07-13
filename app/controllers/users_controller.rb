@@ -20,8 +20,8 @@ class UsersController < ApplicationController
       EmailActivationMailer.activate(user).deliver_now
       redirect_to dashboard_path
     else
-      flash[:error] = 'Username already exists'
-      render :new
+      flash[:error] = user.errors.full_messages.join(' ')
+      redirect_to new_user_path(user)
     end
   end
 
