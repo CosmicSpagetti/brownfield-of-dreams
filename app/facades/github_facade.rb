@@ -30,7 +30,9 @@ class GithubFacade
 
   private
 
+  # rubocop:disable Naming/MemoizedInstanceVariableName
   def service
     @_service ||= GithubService.new(@user)
   end
+  # rubocop:enable Naming/MemoizedInstanceVariableName
 end
