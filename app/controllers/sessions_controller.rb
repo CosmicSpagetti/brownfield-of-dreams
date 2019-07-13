@@ -2,9 +2,11 @@
 
 # controller for sessions
 class SessionsController < ApplicationController
+  # rubocop:disable Naming/MemoizedInstanceVariableName
   def new
     @user ||= User.new
   end
+  # rubocop:enable Naming/MemoizedInstanceVariableName
 
   def create
     user = User.find_by(email: params[:session][:email])

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# controller for tutorials
 module Api
   module V1
+    # controller for tutorials
     class TutorialsController < ApplicationController
       def index
         render json: Tutorial.all

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 require 'simplecov'
+<<<<<<< HEAD
+=======
+
+# rails helper file
+>>>>>>> b1ee136dd2272d54b87207ced18b4a4316ba4dc6
 SimpleCov.start
 require 'spec_helper'
 

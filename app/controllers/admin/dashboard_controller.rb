@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# controller for admin dashboard
 module Admin
+  # controller for admin dashboard
   class DashboardController < Admin::BaseController
     def show
       @facade = AdminDashboardFacade.new
