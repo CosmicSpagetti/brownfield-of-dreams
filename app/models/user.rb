@@ -29,9 +29,9 @@ class User < ApplicationRecord
   end
 
   def grab_videos
-    video_data ||= Video.joins(:user_videos, :tutorial)
-                        .where(user_videos: {user_id: self.id})
-                        .includes(:tutorial)
-                        .order(:position)
+    Video.joins(:user_videos, :tutorial)
+         .where(user_videos: { user_id: id })
+         .includes(:tutorial)
+         .order(:position)
   end
 end

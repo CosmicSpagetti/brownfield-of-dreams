@@ -1,7 +1,10 @@
 AllCops:
   Exclude:
     - db/*
+    - db/migrate/*.rb
     - 'spec/**/*_spec.rb'
     - config/routes.rb
+    - config/environments/*.rb
     - node_modules/**/*.spec
     - node_modules/**/extconf.rb
+    - lib/tasks/youtube_seed.rake

@@ -9,14 +9,16 @@ class UserVideosController < ApplicationController
     elsif user_video.save
       flash[:success] = 'Bookmark added to your dashboard!'
     end
-    current_vid = Video.find(user_video_params[:video_id])
-    current_tutorial = current_vid.tutorial
-    redirect_to tutorial_path(current_tutorial)
+    redirect_to tutorial_path(grab_current_vid.tutorial)
   end
 
   private
 
   def user_video_params
     params.permit(:user_id, :video_id)
+  end
+
+  def grab_current_vid
+    Video.find(user_video_params[:video_id])
   end
 end
