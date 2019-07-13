@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'As a visitor' do 
+describe 'As a visitor', :js do 
   it 'Can not view classroom content' do 
     tutorial_1 = create(:tutorial, classroom: false )
     tutorial_2 = create(:tutorial, classroom: true)
@@ -14,7 +14,7 @@ describe 'As a visitor' do
   end
 end
 
-describe 'As a registered user' do 
+describe 'As a registered user', :js do 
   it 'Can view classroom content' do 
     user_billy = create(:user)
     tutorial_1 = create(:tutorial, classroom: false )

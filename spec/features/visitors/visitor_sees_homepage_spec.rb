@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Visitor' do
+describe 'Visitor', :js do
   describe 'on the home page' do
     it 'can see a list of tutorials' do
       tutorial1 = create(:tutorial)

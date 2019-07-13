@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe 'a logged in user' do
+describe 'a logged in user', :js do
   it 'can see bookmarked segments' do
     tutorial1 = create(:tutorial, title: 'How to Tie Your Shoes')
     tutorial2 = create(:tutorial, title: 'How to Brush Your Teeth')
