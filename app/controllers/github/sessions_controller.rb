@@ -9,7 +9,7 @@ module Github
       user.update(github_token: token)
       user.save
       session[:user_id] = user.id
-      redirect_back fallback_location: dashboard_path
+      redirect_to dashboard_path
     end
 
     private
