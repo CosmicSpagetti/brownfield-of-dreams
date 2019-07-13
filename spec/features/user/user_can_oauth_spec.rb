@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Logged in user' do
+describe 'Logged in user', :js do
   it 'can see github repos' do
     stub_omniauth
 

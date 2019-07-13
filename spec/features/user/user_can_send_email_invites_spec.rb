@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe 'a logged in user' do
+describe 'a logged in user', :js do
   it 'can send an email invitation' do
     user = create(:user,
                   username: 'CosmicSpagetti',

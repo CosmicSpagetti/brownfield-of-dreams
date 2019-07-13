@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Logged in user' do
+describe 'Logged in user', :js do
   it "can add friendships" do 
     user_billy = User.create!(email: 'billy@example.com',
                              first_name: 'Billy',
