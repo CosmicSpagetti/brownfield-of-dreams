@@ -2,7 +2,7 @@
 
 # controller for videos
 module Admin
-  # controller for admins video controls 
+  # controller for admins video controls
   class VideosController < Admin::BaseController
     def edit
       @video = Video.find(params[:video_id])
@@ -25,9 +25,7 @@ module Admin
 
         flash[:success] = 'Successfully created video.'
       rescue StandardError
-        # Sorry about this. We should get more specific
-        # instead of swallowing all errors.
-        flash[:error] = 'Unable to create video.'
+        flash[:error] = video.errors.full_messages.join(' ') # displays more errors not just one maybe?
       end
 
       redirect_to edit_admin_tutorial_path(id: tutorial.id)
