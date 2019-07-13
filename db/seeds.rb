@@ -126,9 +126,9 @@ User.create!(email: 'earl@example.com',
              first_name: 'Earl',
              last_name: 'Stephens',
              password: 'password',
-             username: 'earl-stephens',
+             username: 'earl-stephens')
 User.create!(email: 'billy@example.com',
              first_name: 'Billy',
              last_name: 'Urrutia',
              password: 'password',
-             username: 'CosmicSpagetti',
+             username: 'CosmicSpagetti')
