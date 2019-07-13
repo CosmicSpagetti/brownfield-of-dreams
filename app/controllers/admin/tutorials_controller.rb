@@ -10,9 +10,10 @@ module Admin
     def create
       new_tutorial = Tutorial.new(tutorial_params)
       if new_tutorial.save
-        redirect_to admin_dashboard_path
+        flash[:success] = 'Successfully created tutorial.'
+        redirect_to tutorial_path(new_tutorial.id)
       else
-        render :new
+        redirect_to new_admin_tutorial_path
       end
     end
 
