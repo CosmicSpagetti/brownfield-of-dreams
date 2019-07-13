@@ -29,6 +29,11 @@ module Admin
       redirect_to edit_admin_tutorial_path(tutorial)
     end
 
+    def destroy
+      Tutorial.find(params[:id]).destroy
+      redirect_to admin_dashboard_path
+    end
+
     private
 
     def tutorial_params

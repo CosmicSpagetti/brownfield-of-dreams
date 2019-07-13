@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Logged in user' do
+describe 'Logged in user', :js do
   it 'can see github followers' do
     user = create(:user, username: 'CosmicSpagetti', github_token: ENV['BILLY_GITHUB_TOKEN'])
 

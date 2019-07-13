@@ -14,19 +14,20 @@ module Admin
 
     def create
       begin
-        video = grab_tutorial.videos
-                             .new(new_vid_params.merge(thumbnail: thumbnail))
-        video.save
+        grab_video.save
         flash[:success] = 'Successfully created video.'
       rescue StandardError
-        # Sorry about this. We should get more specific
-        # instead of swallowing all errors.
-        flash[:error] = 'Unable to create video.'
+        flash[:error] = video.errors.full_messages.join(' ')
       end
       redirect_to edit_admin_tutorial_path(id: grab_tutorial.id)
     end
 
     private
+
+    def grab_video
+      grab_tutorial.videos
+                   .new(new_vid_params.merge(thumbnail: thumbnail))
+    end
 
     def grab_tutorial
       @_grab_tutorial = Tutorial.find(params[:tutorial_id])
