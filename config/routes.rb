@@ -12,13 +12,13 @@ Rails.application.routes.draw do
   get 'tags/:tag', to: 'welcome#index', as: :tag
   get '/register', to: 'users#new'
   get '/activation', to: 'activation#index'
-
+  get '/about', to: 'about#show'
   namespace :admin do
     get '/dashboard', to: 'dashboard#show'
     resources :tutorials, only: %i[create edit update destroy new] do
       resources :videos, only: [:create]
     end
-    resources :videos, only: %i[edit update destroy]
+    resources :videos, only: %i[edit update]
 
     namespace :api do
       namespace :v1 do
@@ -35,17 +35,13 @@ Rails.application.routes.draw do
   get '/about', to: 'about#show'
   get '/get_started', to: 'get_started#show'
 
-  # Is this being used?
-  get '/video', to: 'video#show'
   get '/auth/github', as: :github_login
   get '/auth/github/callback', to: 'github/sessions#update'
-  resources :users, only: %i[new create update edit]
+  resources :users, only: %i[new create update ]
   get 'users/:id', to: 'users#update'
-  resources :tutorials, only: %i[show index] do
-    resources :videos, only: %i[show index]
-  end
+  resources :tutorials, only: %i[show] 
 
-  resources :user_videos, only: %i[create destroy]
+  resources :user_videos, only: %i[create]
   get '/invite', to: 'invitations#new'
   post '/email_invite', to: 'invitations#create'
 end
